@@ -4,11 +4,58 @@
 <meta charset="UTF-8">
 <title>Memory Lane</title>
 <link rel="stylesheet" href="main.css">
+       <script>
+var looper;
+var degrees = 0;
+function rotateAnimation(el,speed){
+	var elem = document.getElementById(el);
+	if(navigator.userAgent.match("Chrome")){
+		elem.style.WebkitTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Firefox")){
+		elem.style.MozTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("MSIE")){
+		elem.style.msTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Opera")){
+		elem.style.OTransform = "rotate("+degrees+"deg)";
+	} else {
+		elem.style.transform = "rotate("+degrees+"deg)";
+	}
+	looper = setTimeout('rotateAnimation(\''+el+'\','+speed+')',.05);
+	degrees++;
+	if(degrees > 359){
+		degrees = 1;
+	}
+	document.getElementById("status").innerHTML = "rotate("+degrees+"deg)";
+}
+</script>
 </head>
 <body>
 <div>
    <img id="logo" src="images/logo.png">
    
+    </div>
+    <div id="rightside">
+       London<br>
+Paris<br>
+Hong Kong<br>
+Tokyo<br>
+Anaheim<br>
+Toronto<br>
+
+    </div>
+       <div id="leftside">
+       London<br>
+Paris<br>
+Hong Kong<br>
+Tokyo<br>
+Anaheim<br>
+Toronto<br>
+
+    </div>
+    <div>
+
+<img id="img1" src="images\teambutton.png" alt="background">
+<script>rotateAnimation("img1",30);</script>
     </div>
 </body>
 </html>
