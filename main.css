@@ -9,7 +9,9 @@ margin-right: 0 auto;
 }
 #rightside{
   float:right;
+  top:500px;
 }
 #leftside{
   float:left;
+  top:500px;
 }
